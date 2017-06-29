@@ -1,35 +1,26 @@
-﻿{
+{
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "siteLocation": {
             "type": "string",
             "allowedValues": [
-                "East US",
-                "West US",
-                "Central US",
-                "South Central US",
-                "East US 2",
-                "North Europe",
-                "West Europe",
-                "Southeast Asia",
-                "East Asia",
-                "Japan West",
-                "Japan East"
+                "East US 2"
             ],
-            "defaultValue": "West US",
+            "defaultValue": "East US 2",
             "metadata": {
                 "description": "Azure region where application gateway will be deployed"
             }
         },
         "sqlAdministratorLogin": {
             "type": "string",
+			"defaultValue": "dbadmin",
             "metadata": {
                 "description": "The database admin username that you wish to create."
             }
+        "dbAdminPassword": {            "type": "securestring",
         },
-        "dbAdminPassword": {
-            "type": "securestring",
+			"defaultValue": "Password$123",
             "metadata": {
                 "description": "Password for database admin user that you wish to use."
             }
@@ -49,6 +40,7 @@
         },
         "hostingPlanName": {
             "type": "string",
+			"defaultValue": "[concat(resourceGroup().id, '-plan')]",
             "metadata": {
                 "description": "The hosting service plan name that you wish to create."
             }
@@ -74,6 +66,7 @@
         },
         "repoURL": {
             "type": "string",
+			"defaultValue": "https://github.com/MartinGoodwell/contosomoments",
             "metadata": {
                 "description": "Repo URL"
             }
