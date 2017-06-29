@@ -18,7 +18,7 @@
             "metadata": {
                 "description": "The database admin username that you wish to create."
             }
-	};
+	},
         "dbAdminPassword": {
             "type": "securestring",
             "defaultValue": "Password$123",
